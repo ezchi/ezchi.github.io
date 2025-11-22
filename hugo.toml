@@ -1,0 +1,19 @@
+baseURL = 'https://ezchi.github.io/'
+languageCode = 'en-us'
+title = 'FPGA Deep Insights'
+
+theme = "PaperMod"
+defaultContentLanguage = "en"
+enableInlineShortcodes = true
+
+[params]
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  ShowCodeCopyButtons = true
+  comments = false
+
+[markup]
+  [markup.highlight]
+    noClasses = false
