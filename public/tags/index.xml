@@ -7,5 +7,54 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cocotb</title>
+      <link>http://localhost:1313/tags/cocotb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cocotb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FPGA</title>
+      <link>http://localhost:1313/tags/fpga/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fpga/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SVA</title>
+      <link>http://localhost:1313/tags/sva/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sva/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>http://localhost:1313/tags/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Verification</title>
+      <link>http://localhost:1313/tags/verification/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/verification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Verilator</title>
+      <link>http://localhost:1313/tags/verilator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/verilator/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
