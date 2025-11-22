@@ -1,67 +1,9 @@
 * SVA Tutorials
-
-** 💻 Series 1, Post 1: SVA & Verilator on Macbook : The Non-Intrusive Verification Setup
-   :PROPERTIES:
-   :EXPORT_FILE_NAME: sva-intro
-   :END:
-   #+hugo_published: true
-   #+hugo_tags: SVA FPGA Verification
-   #+hugo_categories: Verification
-
-*** Introduction: Why Assertions and Non-Intrusive Verification?
-SystemVerilog Assertions (SVA) are not just another test language; they are a declarative, temporal powerhouse. Instead of writing hundreds of lines of procedural code to check a protocol's timing, you define the rule once. This significantly reduces verification effort.
-
-In professional flows, it's crucial to keep verification separate from design. I want to check the golden RTL without modifying it. This post is the first step: setting up the environment using the open-source workhorse Verilator on MacOS system.
-
-*** 🛠️ Part 1: Prerequisites -- The Toolchain
-I need the right tools to compile the SystemVerilog into a simulation model.
-
-- Xcode Command Line Tools :: These are essential for the native C/C++ compiler suite (clang or gcc) that Verilator will rely on to build the final simulator executable.
-
-Action: Open your Terminal and run:
-
-#+begin_src sh
-  xcode-select --install
-#+end_src
-
-Note: If you get a message saying the tools are already installed, you're good to go!
-
-- Homebrew (The macOS Package Manager) :: Homebrew makes installing open-source tools like Verilator incredibly simple.
-
-Action: If you don't have it, install Homebrew by following the instructions on its official site, typically by running:
-
-#+begin_src sh
-  /bin/bash -c “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)”
-#+end_src
-
-*** 🚀 Part 2: Installing Verilator -- The SVA Compiler
-Verilator is a unique tool. It doesn't just simulate; it compiles your SystemVerilog RTL and SVA code into a high-performance C++ model. This is the key that unlocks integration with C++ and, subsequently, Python/Cocotb.
-
-- Install Verilator :: Use Homebrew to fetch and install the latest stable version.
-
-Action: Run the following in your Terminal:
-
-#+begin_src sh
-  brew install verilator
-#+end_src
-
-Verification: Check your installation to ensure Verilator is recognized globally.
-
-Action: Run:
-
-#+begin_src sh
-  verilator --version
-#+end_src
-
-Expected Output: You should see the version number (e.g., Verilator 5.042 2025-11-02 rev...).
-
-In the following posts, I will share my SVA learning journey.
-
 ** DONE Intro to SystemVerilog Assertions
    :PROPERTIES:
    :EXPORT_FILE_NAME: sva-intro
    :END:
-   #+hugo_published: false
+   #+hugo_published: true
    #+hugo_tags: SVA FPGA Verification
    #+hugo_categories: Verification
 
@@ -77,29 +19,4 @@ In the following posts, I will share my SVA learning journey.
 * Verilator Tutorials
 ** DONE Verilator + C++ Testbench
    :EXPORT_FILE_NAME: verilator-cpp
-   #+hugo_tags: Verilator C++
-   
-** TODO 🔗 Part 3: Python and Cocotb (The Next Step)
-   :EXPORT_FILE_NAME: verilator-cocotb
-   #+hugo_tags: Verilator Cocotb
-   
-While the initial SVA learning focuses on Verilator's C++ output, our final goal is integration with Cocotb---the popular Python-based verification framework.
-
-Python Environment: Ensure you have a working Python environment (version 3.8+ is recommended). It's best practice to use a virtual environment for your verification projects.
-
-Action: Create and activate a virtual environment (e.g., named sva_venv):
-
-Bash
-
-python3 -m venv sva_venv
-source sva_venv/bin/activate
-Install Cocotb: Install the core Cocotb package and the necessary tool support for Verilator.
-
-Action: Run:
-
-Bash
-
-pip install cocotb cocotb-tools
-Conclusion and What's Next
-You now have a complete, open-source verification setup on your Mac M4: RTL, a C/C++ environment, and the Verilator/Cocotb bridge.
-
+   #+hugo_tags: Verilator C++ Cocotb
