@@ -1,0 +1,22 @@
+* SVA Tutorials
+** DONE Intro to SystemVerilog Assertions
+   :PROPERTIES:
+   :EXPORT_FILE_NAME: sva-intro
+   :END:
+   #+hugo_published: true
+   #+hugo_tags: SVA FPGA Verification
+   #+hugo_categories: Verification
+
+   Intro content here…
+
+** DONE Temporal Operators Explained
+   :EXPORT_FILE_NAME: sva-temporal-ops
+   #+hugo_tags: SVA Tutorial
+   #+hugo_categories: Verification
+
+   Your text…
+
+* Verilator Tutorials
+** DONE Verilator + C++ Testbench
+   :EXPORT_FILE_NAME: verilator-cpp
+   #+hugo_tags: Verilator C++ Cocotb
