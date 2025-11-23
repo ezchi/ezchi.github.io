@@ -6,13 +6,16 @@
     <description>Recent content in Verification on FPGA Deep Insights</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
+    <lastBuildDate>Sun, 23 Nov 2025 11:34:00 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/verification/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Intro to SystemVerilog Assertions</title>
-      <link>http://localhost:1313/posts/sva-intro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/sva-intro/</guid>
-      <description>&lt;p&gt;Intro content here…&lt;/p&gt;</description>
+      <title>Post 1: SVA &amp; Verilator on Macbook : The Non-Intrusive Verification Setup</title>
+      <link>http://localhost:1313/posts/post-1-sva--verilator-on-macbook--the-nonintrusive-verification-setup/</link>
+      <pubDate>Sun, 23 Nov 2025 11:34:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-1-sva--verilator-on-macbook--the-nonintrusive-verification-setup/</guid>
+      <description>&lt;h2 id=&#34;introduction-why-assertions-and-non-intrusive-verification&#34;&gt;Introduction: Why Assertions and Non-Intrusive Verification?&lt;/h2&gt;
+&lt;p&gt;SystemVerilog Assertions (SVA) are not just another test language; they are a declarative, temporal powerhouse. Instead of writing hundreds of lines of procedural code to check a protocol&amp;rsquo;s timing, you define the rule once. This significantly reduces verification effort.&lt;/p&gt;
+&lt;p&gt;In professional flows, it&amp;rsquo;s crucial to keep verification separate from design. I want to check the golden RTL without modifying it. This post is the first step: setting up the environment using the open-source workhorse Verilator on MacOS system.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
