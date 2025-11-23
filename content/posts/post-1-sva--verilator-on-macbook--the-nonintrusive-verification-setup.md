@@ -4,7 +4,7 @@ author = ["Enze Chi"]
 date = 2025-11-23T11:34:00+11:00
 tags = ["SVA", "FPGA", "Verification", "Verilator"]
 categories = ["Verification"]
-draft = true
+draft = false
 +++
 
 ## Introduction: Why Assertions and Non-Intrusive Verification? {#introduction-why-assertions-and-non-intrusive-verification}
