@@ -4,7 +4,7 @@ author = ["Enze Chi"]
 date = 2025-11-27T09:31:00+11:00
 tags = ["SVA", "FPGA", "Verification", "Verilator"]
 categories = ["Verification", "SVA"]
-draft = true
+draft = false
 +++
 
 ## Introduction: Sequences Define Time {#introduction-sequences-define-time}
