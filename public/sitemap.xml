@@ -3,33 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/fpga/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/post-1-sva--verilator-on-macbook--the-nonintrusive-verification-setup/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <loc>http://localhost:1313/posts/post-4-keep-your-rtl-clean-non-intrusive-verification-with-sva-bind/</loc>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/post-4-the-professionals-trick--checkers-and-the-bind-construct/</loc>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/sva/</loc>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/sva/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/verification/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/verification/</loc>
-    <lastmod>2025-11-23T11:34:00+11:00</lastmod>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/verilator/</loc>
+    <lastmod>2025-12-29T21:04:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/post-3-temporal-logic-unlocked-sequence-repetition-and-implication-operators/</loc>
+    <lastmod>2025-11-27T09:31:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/post-2-sva-fundamentals-immediate-vs-concurrent-sva/</loc>
+    <lastmod>2025-11-23T12:08:00+11:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/post-1-sva--verilator-on-macbook--the-nonintrusive-verification-setup/</loc>
     <lastmod>2025-11-23T11:34:00+11:00</lastmod>
   </url>
 </urlset>

@@ -6,8 +6,61 @@
     <description>Recent content in Verification on FPGA Deep Insights</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Nov 2025 11:34:00 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 29 Dec 2025 21:04:00 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/verification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post 4: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind</title>
+      <link>http://localhost:1313/posts/post-4-keep-your-rtl-clean-non-intrusive-verification-with-sva-bind/</link>
+      <pubDate>Mon, 29 Dec 2025 21:04:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-4-keep-your-rtl-clean-non-intrusive-verification-with-sva-bind/</guid>
+      <description>&lt;h2 id=&#34;introduction-why-decouple&#34;&gt;Introduction: Why Decouple?&lt;/h2&gt;
+&lt;p&gt;If you embed assertions directly inside your module rtl_logic, you risk two things:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;Code Bloat&lt;/dt&gt;
+&lt;dd&gt;Your design files become harder to read.&lt;/dd&gt;
+&lt;dt&gt;Synthesis Issues&lt;/dt&gt;
+&lt;dd&gt;While most synthesis tools ignore SVA, keeping them separate ensures there is zero chance of accidentally affecting the hardware gates.&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Today, we learn the “Wrapper and Bolt” method using the checker and bind constructs.&lt;/p&gt;
+&lt;h2 id=&#34;the-checker-construct-the-verification-wrapper&#34;&gt;The checker Construct: The Verification Wrapper&lt;/h2&gt;
+&lt;p&gt;Think of a checker as a specialized container. It looks like a module, but it is specifically designed to hold assertions, properties, and the modeling logic needed to support them.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 4: the Professional&#39;s Trick – Checkers and the bind Construct</title>
+      <link>http://localhost:1313/posts/post-4-the-professionals-trick--checkers-and-the-bind-construct/</link>
+      <pubDate>Mon, 29 Dec 2025 21:04:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-4-the-professionals-trick--checkers-and-the-bind-construct/</guid>
+      <description>&lt;p&gt;🏗️ Series 1, Post 4: The Professional&amp;rsquo;s Trick – Checkers and the bind Construct
+Title: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind&lt;/p&gt;
+&lt;p&gt;Introduction: Why Decouple?
+If you embed assertions directly inside your module rtl_logic, you risk two things:&lt;/p&gt;
+&lt;p&gt;Code Bloat: Your design files become harder to read.&lt;/p&gt;
+&lt;p&gt;Synthesis Issues: While most synthesis tools ignore SVA, keeping them separate ensures there is zero chance of accidentally affecting the hardware gates.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 3: Temporal Logic Unlocked: Sequence Repetition and Implication Operators</title>
+      <link>http://localhost:1313/posts/post-3-temporal-logic-unlocked-sequence-repetition-and-implication-operators/</link>
+      <pubDate>Thu, 27 Nov 2025 09:31:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-3-temporal-logic-unlocked-sequence-repetition-and-implication-operators/</guid>
+      <description>&lt;h2 id=&#34;introduction-sequences-define-time&#34;&gt;Introduction: Sequences Define Time&lt;/h2&gt;
+&lt;p&gt;In SystemVerilog Assertions, a &lt;strong&gt;sequence&lt;/strong&gt; is a pattern of Boolean expressions that unfolds over one or more clock cycles. Sequences are how you define the temporal relationship between signals. Once a sequence is defined, a &lt;strong&gt;property&lt;/strong&gt; uses it, often along with an &lt;strong&gt;implication operator&lt;/strong&gt;, to establish a clear cause-and-effect rule.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;defining-sequences-the-building-blocks&#34;&gt;1. Defining Sequences: The Building Blocks&lt;/h2&gt;
+&lt;p&gt;The primary tool for defining sequences is the &lt;strong&gt;cycle delay operator&lt;/strong&gt; (&lt;strong&gt;##&lt;/strong&gt;).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Post 2: SVA Fundamentals: Immediate vs Concurrent SVA</title>
+      <link>http://localhost:1313/posts/post-2-sva-fundamentals-immediate-vs-concurrent-sva/</link>
+      <pubDate>Sun, 23 Nov 2025 12:08:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-2-sva-fundamentals-immediate-vs-concurrent-sva/</guid>
+      <description>&lt;h2 id=&#34;introduction-the-two-pillars-of-sva&#34;&gt;Introduction: The Two Pillars of SVA&lt;/h2&gt;
+&lt;p&gt;SystemVerilog Assertions (SVA) gives you two main ways to check your design&amp;rsquo;s behavior, depending on the scope of time you need to cover:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Immediate Assertions:&lt;/strong&gt; For checks that must hold true &lt;em&gt;right now&lt;/em&gt;, within a single simulation cycle.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Concurrent Assertions:&lt;/strong&gt; For checks that involve &lt;em&gt;time&lt;/em&gt;, tracking a sequence of events over multiple clock cycles.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Understanding when and where to use each type is crucial for effective verification.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Post 1: SVA &amp; Verilator on Macbook : The Non-Intrusive Verification Setup</title>
       <link>http://localhost:1313/posts/post-1-sva--verilator-on-macbook--the-nonintrusive-verification-setup/</link>

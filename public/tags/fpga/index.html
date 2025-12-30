@@ -116,13 +116,84 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Post 1: SVA &amp; Verilator on Macbook : The Non-Intrusive Verification Setup
+    <h2 class="entry-hint-parent">Post 4: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
           <path
             d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
         </svg>
       </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction: Why Decouple? If you embed assertions directly inside your module rtl_logic, you risk two things:
+Code Bloat Your design files become harder to read. Synthesis Issues While most synthesis tools ignore SVA, keeping them separate ensures there is zero chance of accidentally affecting the hardware gates. Today, we learn the “Wrapper and Bolt” method using the checker and bind constructs.
+The checker Construct: The Verification Wrapper Think of a checker as a specialized container. It looks like a module, but it is specifically designed to hold assertions, properties, and the modeling logic needed to support them.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-29 21:04:00 +1100 AEDT'>December 29, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Enze Chi</span></footer>
+  <a class="entry-link" aria-label="post link to Post 4: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind" href="http://localhost:1313/posts/post-4-keep-your-rtl-clean-non-intrusive-verification-with-sva-bind/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post 4: the Professional&#39;s Trick – Checkers and the bind Construct
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>🏗️ Series 1, Post 4: The Professional’s Trick – Checkers and the bind Construct Title: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind
+Introduction: Why Decouple? If you embed assertions directly inside your module rtl_logic, you risk two things:
+Code Bloat: Your design files become harder to read.
+Synthesis Issues: While most synthesis tools ignore SVA, keeping them separate ensures there is zero chance of accidentally affecting the hardware gates.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-29 21:04:00 +1100 AEDT'>December 29, 2025</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Enze Chi</span></footer>
+  <a class="entry-link" aria-label="post link to Post 4: the Professional&#39;s Trick – Checkers and the bind Construct" href="http://localhost:1313/posts/post-4-the-professionals-trick--checkers-and-the-bind-construct/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post 3: Temporal Logic Unlocked: Sequence Repetition and Implication Operators
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction: Sequences Define Time In SystemVerilog Assertions, a sequence is a pattern of Boolean expressions that unfolds over one or more clock cycles. Sequences are how you define the temporal relationship between signals. Once a sequence is defined, a property uses it, often along with an implication operator, to establish a clear cause-and-effect rule.
+1. Defining Sequences: The Building Blocks The primary tool for defining sequences is the cycle delay operator (##).
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-27 09:31:00 +1100 AEDT'>November 27, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Enze Chi</span></footer>
+  <a class="entry-link" aria-label="post link to Post 3: Temporal Logic Unlocked: Sequence Repetition and Implication Operators" href="http://localhost:1313/posts/post-3-temporal-logic-unlocked-sequence-repetition-and-implication-operators/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post 2: SVA Fundamentals: Immediate vs Concurrent SVA
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Introduction: The Two Pillars of SVA SystemVerilog Assertions (SVA) gives you two main ways to check your design’s behavior, depending on the scope of time you need to cover:
+Immediate Assertions: For checks that must hold true right now, within a single simulation cycle. Concurrent Assertions: For checks that involve time, tracking a sequence of events over multiple clock cycles. Understanding when and where to use each type is crucial for effective verification.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-11-23 12:08:00 +1100 AEDT'>November 23, 2025</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>Enze Chi</span></footer>
+  <a class="entry-link" aria-label="post link to Post 2: SVA Fundamentals: Immediate vs Concurrent SVA" href="http://localhost:1313/posts/post-2-sva-fundamentals-immediate-vs-concurrent-sva/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Post 1: SVA &amp; Verilator on Macbook : The Non-Intrusive Verification Setup
     </h2>
   </header>
   <div class="entry-content">
