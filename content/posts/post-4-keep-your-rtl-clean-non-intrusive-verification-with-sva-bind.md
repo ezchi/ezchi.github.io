@@ -4,7 +4,7 @@ author = ["Enze Chi"]
 date = 2025-12-29T21:04:00+11:00
 tags = ["SVA", "FPGA", "Verification", "Verilator"]
 categories = ["Verification", "SVA"]
-draft = true
+draft = false
 +++
 
 ## Introduction: Why Decouple? {#introduction-why-decouple}

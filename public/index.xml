@@ -6,8 +6,18 @@
     <description>Recent content on FPGA Deep Insights</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2025 21:04:00 +1100</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 12:18:00 +1100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Post 5: Beyond the Log File: Triggering C&#43;&#43; and Cocotb from SVA</title>
+      <link>http://localhost:1313/posts/post-5-beyond-the-log-file-triggering-c-and-cocotb-from-sva/</link>
+      <pubDate>Tue, 30 Dec 2025 12:18:00 +1100</pubDate>
+      <guid>http://localhost:1313/posts/post-5-beyond-the-log-file-triggering-c-and-cocotb-from-sva/</guid>
+      <description>&lt;h2 id=&#34;introduction-why-connect-sva-to-software&#34;&gt;Introduction: Why Connect SVA to Software?&lt;/h2&gt;
+&lt;p&gt;Seeing an error message in a terminal is fine for a human, but a self-checking testbench needs to know programmatically when an assertion fails. By using the Direct Programming Interface (DPI), we can call a C++ function directly from an SVA “Action Block.”&lt;/p&gt;
+&lt;h2 id=&#34;the-action-block-the-trigger&#34;&gt;The Action Block: The Trigger&lt;/h2&gt;
+&lt;p&gt;Every assertion has two hidden slots called Action Blocks: the “pass” block and the “fail” block.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Post 4: Keep Your RTL Clean: Non-Intrusive Verification with SVA Bind</title>
       <link>http://localhost:1313/posts/post-4-keep-your-rtl-clean-non-intrusive-verification-with-sva-bind/</link>
