@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASX Stock Target Price Calculator</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --input-bg: #334155;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border: #475569;
+            --success: #4ade80;
+            --error: #f87171;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: var(--card);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+            /* Fix padding issue */
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 500px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .result-section {
+            background-color: #0f172a;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .result-row:last-child {
+            margin-bottom: 0;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .result-label {
+            color: var(--text-muted);
+        }
+
+        .result-value {
+            font-family: 'SF Mono', Consolas, monospace;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 1rem;
+            min-height: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .status.loading {
+            color: var(--accent);
+        }
+
+        .status.error {
+            color: var(--error);
+        }
+
+        .status.success {
+            color: var(--success);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📈 Target Price Calculator</h1>
+
+        <div class="input-group">
+            <label for="symbol">Stock Symbol (ASX)</label>
+            <input type="text" id="symbol" placeholder="e.g. BHP" value="BHP">
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label for="startYear">Start Year</label>
+                <input type="number" id="startYear">
+            </div>
+            <div class="input-group">
+                <label for="priceOption">Starting Price Metric</label>
+                <select id="priceOption">
+                    <option value="median">Median Price</option>
+                    <option value="low">Lowest Price</option>
+                    <option value="high">Highest Price</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <label for="cagr">Growth Rate (CAGR %)</label>
+                <input type="number" id="cagr" placeholder="10" value="10" step="0.1">
+            </div>
+            <div class="input-group">
+                <label for="targetYear">Target Year</label>
+                <input type="number" id="targetYear">
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="result-row">
+                <span class="result-label">Start Price (<span id="startYearDisplay"></span>)</span>
+                <span class="result-value" id="startPriceValue">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Current Price</span>
+                <span class="result-value" id="currentPriceValue">--</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Base</span>
+                <span class="result-value" id="baseMetricDisplay">Median</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Years of Growth</span>
+                <span class="result-value" id="yearsGrowth">0</span>
+            </div>
+            <div class="result-row">
+                <span class="result-label">Target Price</span>
+                <span class="result-value" id="targetPriceValue">--</span>
+            </div>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script>
+        const els = {
+            symbol: document.getElementById('symbol'),
+            startYear: document.getElementById('startYear'),
+            priceOption: document.getElementById('priceOption'),
+            cagr: document.getElementById('cagr'),
+            targetYear: document.getElementById('targetYear'),
+            startYearDisplay: document.getElementById('startYearDisplay'),
+            startPriceValue: document.getElementById('startPriceValue'),
+            currentPriceValue: document.getElementById('currentPriceValue'),
+            baseMetricDisplay: document.getElementById('baseMetricDisplay'),
+            yearsGrowth: document.getElementById('yearsGrowth'),
+            targetPriceValue: document.getElementById('targetPriceValue'),
+            status: document.getElementById('status')
+        };
+
+        // Defaults
+        const currentYear = new Date().getFullYear();
+        els.startYear.value = currentYear - 1;
+        els.targetYear.value = currentYear + 5;
+
+        // State
+        let fetchedData = {}; // Cache: { "SYMBOL-YEAR": { low, high, median } }
+        let currentPriceCache = {}; // Cache: { "SYMBOL": price }
+        let debounceTimer;
+
+        function setStatus(msg, type = '') {
+            els.status.textContent = msg;
+            els.status.className = 'status ' + type;
+        }
+
+        // Fetch current live price
+        async function fetchCurrentPrice(symbol) {
+            if (currentPriceCache[symbol]) return currentPriceCache[symbol];
+
+            // Using a simpler Range query to get just the latest data point
+            const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}.AX?interval=1d&range=1d`;
+            const proxiedUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+
+            try {
+                const response = await fetch(proxiedUrl);
+                if (!response.ok) return null;
+                const data = await response.json();
+                const result = data.chart.result[0];
+                const price = result.meta.regularMarketPrice;
+
+                currentPriceCache[symbol] = price;
+                return price;
+            } catch (e) {
+                console.error("Error fetching current price", e);
+                return null;
+            }
+        }
+
+        async function fetchStockData(symbol, year) {
+            const cacheKey = `${symbol}-${year}`;
+            if (fetchedData[cacheKey]) return fetchedData[cacheKey];
+
+            // Calculate timestamps for Yahoo Finance (Jan 1 to Dec 31 of Start Year)
+            // Note: timestamps are in seconds
+            const startPeriod = Math.floor(new Date(`${year}-01-01`).getTime() / 1000);
+            const endPeriod = Math.floor(new Date(`${year}-12-31`).getTime() / 1000);
+
+            // Use a CORS proxy. 'https://corsproxy.io/?' is a common public one.
+            // Backup: https://api.allorigins.win/raw?url=
+            const yahooUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}.AX?period1=${startPeriod}&period2=${endPeriod}&interval=1d`;
+            const proxiedUrl = `https://corsproxy.io/?${encodeURIComponent(yahooUrl)}`;
+
+            try {
+                const response = await fetch(proxiedUrl);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const data = await response.json();
+                const result = data.chart.result[0];
+
+                if (!result || !result.indicators.quote[0]) {
+                    throw new Error('No data found for this symbol/year');
+                }
+
+                const quotes = result.indicators.quote[0];
+                const highs = quotes.high || [];
+                const lows = quotes.low || [];
+                const closes = quotes.close || [];
+
+                // Filter out nulls
+                const validHighs = highs.filter(v => v != null);
+                const validLows = lows.filter(v => v != null);
+                const validCloses = closes.filter(v => v != null);
+
+                if (validCloses.length === 0) throw new Error('No price data available');
+
+                // Calculate metrics
+                const annualHigh = Math.max(...validHighs);
+                const annualLow = Math.min(...validLows);
+
+                // Median of Closes
+                validCloses.sort((a, b) => a - b);
+                const mid = Math.floor(validCloses.length / 2);
+                const median = validCloses.length % 2 !== 0
+                    ? validCloses[mid]
+                    : (validCloses[mid - 1] + validCloses[mid]) / 2;
+
+                const stats = {
+                    high: annualHigh,
+                    low: annualLow,
+                    median: median
+                };
+
+                fetchedData[cacheKey] = stats;
+                return stats;
+
+            } catch (err) {
+                console.error(err);
+                throw err;
+            }
+        }
+
+        async function update() {
+            const symbol = els.symbol.value.trim().toUpperCase();
+            const startYear = parseInt(els.startYear.value);
+            const targetYear = parseInt(els.targetYear.value);
+            const cagr = parseFloat(els.cagr.value);
+            const option = els.priceOption.value;
+
+            els.startYearDisplay.textContent = startYear;
+            els.baseMetricDisplay.textContent = els.priceOption.options[els.priceOption.selectedIndex].text;
+
+            if (!symbol || isNaN(startYear) || isNaN(targetYear) || isNaN(cagr)) {
+                els.targetPriceValue.textContent = "--";
+                return;
+            }
+
+            const yearsDiff = targetYear - startYear;
+            els.yearsGrowth.textContent = yearsDiff >= 0 ? yearsDiff : 0;
+
+            setStatus('Fetching data...', 'loading');
+
+            try {
+                const [stats, currentPrice] = await Promise.all([
+                    fetchStockData(symbol, startYear),
+                    fetchCurrentPrice(symbol)
+                ]);
+
+                if (currentPrice !== null) {
+                    els.currentPriceValue.textContent = '$' + currentPrice.toFixed(2);
+                } else {
+                    els.currentPriceValue.textContent = 'N/A';
+                }
+
+                let startPrice = 0;
+                if (option === 'high') startPrice = stats.high;
+                else if (option === 'low') startPrice = stats.low;
+                else startPrice = stats.median;
+
+                els.startPriceValue.textContent = '$' + startPrice.toFixed(2);
+
+                // Calculate Target
+                // Formula: P * (1 + r)^t
+                const targetPrice = startPrice * Math.pow(1 + (cagr / 100), yearsDiff);
+
+                els.targetPriceValue.textContent = '$' + targetPrice.toFixed(2);
+                setStatus('Updated', 'success');
+
+            } catch (err) {
+                if (err.message.includes('No data')) {
+                    setStatus(`No data for ${symbol} in ${startYear}`, 'error');
+                } else {
+                    setStatus('Error fetching data. Check symbol.', 'error');
+                    console.error(err);
+                }
+                els.startPriceValue.textContent = "--";
+                els.targetPriceValue.textContent = "--";
+                els.currentPriceValue.textContent = "--";
+            }
+        }
+
+        // Event Listeners
+        const inputs = [els.startYear, els.priceOption, els.cagr, els.targetYear];
+        inputs.forEach(el => el.addEventListener('input', update));
+
+        els.symbol.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(update, 800);
+        });
+
+        // Initial load
+        update();
+
+    </script>
+</body>
+
+</html>
